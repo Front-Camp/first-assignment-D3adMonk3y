@@ -8,8 +8,10 @@
  * @return {string} truncated string
  */
 const truncate = (str, length = 0, replacer = '...') => {
-  if(str !== ''  || replacer !=='' || str.length <= length)
-  return str.substr(0,length) + replacer;
+  if(str !== ''  || replacer !=='' || str.length < length || str.length < replacer.length)
+  return str.substr(0,str.length-length-replacer.length) + replacer;
+  else
+    return str;
   /* your logic here...*/
 };
 
